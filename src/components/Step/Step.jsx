@@ -1,36 +1,41 @@
+import { useState, useEffect } from 'react';
 import { Title, Divider, Checkbox, SimpleGrid, Button, Modal, Text } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { useForm } from '@mantine/form';
-import { useEffect } from 'react';
+
+import { RESULT_OPTION_3 } from 'src/constants/data';
 
 const MAX_STEPS = 3;
 
-const valueChecker = ({ counter, formValues }) => {
-  console.log({ counter, formValues });
-  return counter === formValues.length && formValues.every(Boolean);
-};
+const valueChecker = ({ counter, formValues }) => counter === formValues.length && formValues.every(Boolean);
 
 const Step = ({ data, currentStep, setCurrentStep }) => {
+  const [modalText, setModalText] = useState(data.result);
   const form = useForm();
   const [opened, { open, close }] = useDisclosure(false);
 
   useEffect(() => {
     form.reset();
+    setModalText(data.result);
   }, [currentStep]);
 
   const handleSubmit = (values) => {
-    console.log(Object.values(values));
-
     if (valueChecker({ counter: data.questions.length, formValues: Object.values(values) })) {
       open();
     } else {
       if (currentStep < MAX_STEPS) {
         setCurrentStep(currentStep + 1);
       } else {
-        setCurrentStep(0);
+        setModalText(RESULT_OPTION_3);
+        open();
       }
     }
   };
+
+  const handleCloseModal = () => {
+    close();
+    setCurrentStep(0);
+  }
 
   return (
     <>
@@ -43,8 +48,9 @@ const Step = ({ data, currentStep, setCurrentStep }) => {
           blur: 3,
         }}
         centered
+        onClose={handleCloseModal}
       >
-        <Text fz="lg">{data.result}</Text>
+        <Text fz="lg">{modalText}</Text>
       </Modal>
 
       <form onSubmit={form.onSubmit(handleSubmit)}>
