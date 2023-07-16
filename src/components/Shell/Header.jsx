@@ -1,4 +1,4 @@
-import { Title, Group, Box, rem } from '@mantine/core';
+import { Title, Group, Box, rem, Container } from '@mantine/core';
 import { Hearts } from 'tabler-icons-react';
 
 const Header = () => {
@@ -19,9 +19,9 @@ const Header = () => {
         />
       </Group>
 
-      <Group position="apart">
+      <Container>
         <Title order={3}>Выявление показания к ИТ для пациентов с СП2 И COVID19</Title>
-      </Group>
+      </Container>
     </Box>
   );
 };

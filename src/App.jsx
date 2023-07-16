@@ -3,8 +3,6 @@ import { MantineProvider } from '@mantine/core';
 import Shell from './components/Shell';
 import Start from './components/Start';
 
-import './App.css';
-
 function App() {
   return (
     <MantineProvider

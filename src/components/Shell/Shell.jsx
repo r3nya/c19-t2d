@@ -1,4 +1,4 @@
-import { AppShell } from '@mantine/core';
+import { AppShell, Container } from '@mantine/core';
 
 import HeaderComponent from './Header';
 
@@ -11,7 +11,9 @@ const Shell = ({ children }) => {
         main: { backgroundColor: theme.colors.gray[0] },
       })}
     >
-      {children}
+      <Container>
+        {children}
+      </Container>
     </AppShell>
   );
 };
