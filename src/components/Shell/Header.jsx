@@ -24,6 +24,6 @@ const Header = () => {
       </Group>
     </Box>
   );
-}
+};
 
-export default Header
+export default Header;

@@ -1,17 +1,31 @@
-import { useState } from "react";
-import { Text, Paper } from '@mantine/core';
+import { useState } from 'react';
+import { Paper, Space } from '@mantine/core';
 
-import { DATA } from '../../constants/data';
+import { DATA } from 'src/constants/data';
+import CategoryProgress from 'src/components/CategoryProgress';
 import Step from '../Step';
 
 const Start = () => {
-  const [currentStep, setCurrentStep] = useState(3);
+  const [currentStep, setCurrentStep] = useState(0);
 
   return (
-    <Paper shadow="xs" p="md">
-      <Step data={DATA[currentStep]} />
-    </Paper>
+    <>
+      <CategoryProgress currentStep={currentStep} />
+
+      <Space h="md" />
+
+      <Paper
+        shadow="xs"
+        p="md"
+      >
+        <Step
+          data={DATA[currentStep]}
+          currentStep={currentStep}
+          setCurrentStep={setCurrentStep}
+        />
+      </Paper>
+    </>
   );
-}
+};
 
 export default Start;
