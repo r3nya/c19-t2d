@@ -20,7 +20,7 @@ const Header = () => {
       </Group>
 
       <Container>
-        <Title order={3}>Выявление показания к ИТ для пациентов с СП2 И COVID19</Title>
+        <Title order={3}>Выявление показания к инсулинотерапии (ИТ) для пациентов с сахарным диабетом 2 типа (СП2) И COVID-19</Title>
       </Container>
     </Box>
   );

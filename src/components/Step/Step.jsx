@@ -41,7 +41,6 @@ const Step = ({ data, currentStep, setCurrentStep }) => {
     <>
       <Modal
         opened={opened}
-        onClose={close}
         title="Результат"
         overlayProps={{
           opacity: 0.55,
