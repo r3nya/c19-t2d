@@ -11,7 +11,7 @@ const Shell = ({ children }) => {
         main: { backgroundColor: theme.colors.gray[0] },
       })}
     >
-      <Container>
+      <Container px={0}>
         {children}
       </Container>
     </AppShell>
